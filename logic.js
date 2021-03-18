@@ -508,8 +508,11 @@
 
     // событие удаления - простое удаление из данных
     window.onDeleteRecord = id => {
-        console.log(id);
-        deleteRecord(id);
+        data.splice(data.findIndex(item => item.actions == id), 1);
+        sortData();
+        filteredData = useFilter();
+        removeChildren(document.querySelectorAll('.js-to-remove'));
+        showRows();
     }
 
 
